@@ -3,6 +3,7 @@ import { Link, Navigate , useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function ProductList() {
+    const navigate = useNavigate();
     const [data, setData] = useState([]);
     const BASE_URL = "https://backend-l627.onrender.com/product";
 
@@ -16,7 +17,7 @@ function ProductList() {
             .catch(error => console.error('Error fetching data:', error));
     }
     }, []);
-    const navigate = useNavigate();
+   
     return (
         <div>
             <h1>Products</h1><Link to="/add">Add Product</Link><Link to="/myproduct">My Product</Link><button onClick={() => {localStorage.removeItem('token');window.location.reload();}}>Logout</button>
