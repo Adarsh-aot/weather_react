@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import './Login.css';
 
 function Login() {
   const [state, setState] = useState({
@@ -41,38 +42,44 @@ function Login() {
   };
 
   return (
-    <div className="container">
-      <h2>Register</h2>
-      {message && <div className={`alert ${message.includes('successful') ? 'alert-success' : 'alert-danger'}`}>{message}</div>}
-      <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label htmlFor="email" className="form-label">Email address</label>
-          <input 
-            type="text"
-            className="form-control"
-            id="email"
-            name="email"
-            value={state.email}
-            onChange={handleChange}
-            aria-describedby="emailHelp"
-            required
-          />
-          <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+    <div className="login-container">
+      <div className="login-card">
+        <div className="login-card-body">
+        {message && <div className={`alert ${message.includes('successful') ? 'alert-success' : 'alert-danger'}`}>{message}</div>}
+          <h2 className="login-card-title">Register</h2>
+          
+          <form onSubmit={handleSubmit}>
+          <div id="emailHelp" className="login-form-text">We'll never share your email with anyone else.</div>
+            <div className="login-form-group">
+              <label htmlFor="email" className="login-form-label">Email address</label>
+              <input 
+                type="text"
+                className="login-form-control"
+                id="email"
+                name="email"
+                value={state.email}
+                onChange={handleChange}
+                aria-describedby="emailHelp"
+                required
+              />
+              
+            </div>
+            <div className="login-form-group">
+              <label htmlFor="password" className="login-form-label">Password</label>
+              <input 
+                type="password"
+                className="login-form-control"
+                id="password"
+                name="password"
+                value={state.password}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <button type="submit" className="login-btn btn btn-primary">Register</button>
+          </form>
         </div>
-        <div className="mb-3">
-          <label htmlFor="password" className="form-label">Password</label>
-          <input 
-            type="password"
-            className="form-control"
-            id="password"
-            name="password"
-            value={state.password}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <button type="submit" className="btn btn-primary">Register</button>
-      </form>
+      </div>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import './ProductDetail.css';
 
 function ProductDetail() {
     const { id } = useParams();
@@ -26,12 +27,14 @@ function ProductDetail() {
     if (!product) return <div>Loading...</div>;
 
     return (
-        <div>
-            <h2>{product.name}</h2>
-            <p>{product.discription}</p>
-            {/* Display other details of the product */}
-            <Link to="/product">Back to List</Link>
-            
+        <div className="card">
+            <div className="card-body">
+                <h2 className="card-title">{product.name}</h2>
+                <p className="card-text">{product.discription}</p>
+                {/* Display other details of the product */}
+                <Link to="/product" className="btn btn-secondary">Back to List</Link>
+                <button onClick={deleteProduct} className="btn btn-danger ml-2">Delete</button>
+            </div>
         </div>
     );
 }

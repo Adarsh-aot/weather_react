@@ -1,0 +1,42 @@
+/* MyProduct.css */
+
+.container {
+    margin-top: 20px;
+  }
+  
+  .alert {
+    margin-top: 20px;
+  }
+  
+  .card-deck {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .card {
+    width: 18rem;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+  }
+  
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:20px;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .card-title {
+    margin-bottom: 20px;
+  }
+  
+  .btn {
+    width: 100px;
+  }
+  
+  .ml-2 {
+    margin-left: 10px;
+  }
