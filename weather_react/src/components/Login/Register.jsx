@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate , Link } from 'react-router-dom';
+import { useNavigate  , Link} from 'react-router-dom';
 import './Login.css';
 
-function Login() {
+function Register() {
   const [state, setState] = useState({
     email: '',
     password: ''
@@ -25,22 +25,13 @@ function Login() {
     console.log('Form submitted:', state);
     
     try {
-      const response = await axios.post('https://backend-l627.onrender.com/registration', state);
+      const response = await axios.post('https://backend-l627.onrender.com/registration/register', state);
       console.log(response.data);
       if (response.data.token) {
-        if(response.data.type == "admin"){
-          localStorage.setItem('token', response.data.token);
-          setMessage('Registration successful!');
-          setState({ email: '', password: '' }); // Clear the form
-          navigate('/admin');
-
-        }
-        else{
         localStorage.setItem('token', response.data.token);
         setMessage('Registration successful!');
         setState({ email: '', password: '' }); // Clear the form
         navigate('/product');
-        }
       } else {
         throw new Error('No token received');
       }
@@ -55,7 +46,7 @@ function Login() {
       <div className="login-card">
         <div className="login-card-body">
         {message && <div className={`alert ${message.includes('successful') ? 'alert-success' : 'alert-danger'}`}>{message}</div>}
-          <h2 className="login-card-title">Login</h2>
+          <h2 className="login-card-title">Register</h2>
           
           <form onSubmit={handleSubmit}>
           <div id="emailHelp" className="login-form-text">We'll never share your email with anyone else.</div>
@@ -86,7 +77,6 @@ function Login() {
               />
             </div>
             <button type="submit" className="login-btn btn btn-primary">Register</button>
-            <p className="login-form-text">Don't have an account? <Link to="/register">Register</Link></p>
           </form>
         </div>
       </div>
@@ -94,4 +84,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;

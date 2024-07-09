@@ -1,0 +1,39 @@
+/* AdminControl.css */
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+}
+.admin-card {
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    padding: 20px;
+    min-width: 300px;
+    
+  }
+  
+  .admin-card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .admin-card-title {
+    margin-bottom: 15px;
+  }
+  
+  .admin-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .admin-card-content h1 {
+    margin: 5px 0;
+  }
+  
+  .btn {
+    margin-top: 10px;
+  }
