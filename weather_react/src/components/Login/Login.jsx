@@ -24,7 +24,7 @@ function Login() {
     console.log('Form submitted:', state);
     
     try {
-      const response = await axios.post('http://localhost:5000/registration', state);
+      const response = await axios.post('https://backend-l627.onrender.com/registration', state);
       console.log(response.data);
       if (response.data.token) {
         localStorage.setItem('token', response.data.token);
