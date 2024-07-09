@@ -44,3 +44,34 @@
   .ml-2 {
     margin-left: 10px;
   }
+
+  .container {
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-buttons .btn {
+    margin-left: 10px;
+}
+
+.card-deck {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    margin: 10px;
+    flex: 1 0 21%; /* Adjust card width as needed */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
