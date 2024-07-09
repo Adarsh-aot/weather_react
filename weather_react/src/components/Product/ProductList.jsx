@@ -18,6 +18,27 @@ function ProductList() {
         }
     }, [navigate]);
 
+    const buy = (name, data) => {   
+        const token = localStorage.getItem('token');    
+
+        if (!token) {
+            navigate('/');
+            return;
+        }
+
+        axios.post(`${BASE_URL}/buy`, { name, data }, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `${token}`
+            }
+        })
+            .then(() => {
+                alert("Product bought successfully");
+                console.log('Product bought successfully');         
+            })
+            .catch(error => console.error('Error buying product:', error));
+    };
+
     return (
         <div className="container">
             <div className="header">
@@ -34,7 +55,7 @@ function ProductList() {
                     <div key={item.id} className="card">
                         <div className="card-body">
                             <h5 className="card-title">
-                                <Link to={`/product/${item.id}`}>{item.name}</Link>
+                                <Link to={`/product/${item.id}`}>{item.name}</Link><button className="btn btn-primary ml-2" onClick={() => buy(item.name  , item.data)}>Buy</button>
                             </h5>
                         </div>
                     </div>
