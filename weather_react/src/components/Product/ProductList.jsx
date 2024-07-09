@@ -20,7 +20,7 @@ function ProductList() {
    
     return (
         <div>
-            <h1>Products</h1><Link to="/add">Add Product</Link><Link to="/myproduct">My Product</Link><button onClick={() => {localStorage.removeItem('token');window.location.reload();}}>Logout</button>
+            <h1>Products</h1><Link to="/add">Add Product</Link><Link to="/myproduct">My Product</Link><button onClick={() => {localStorage.removeItem('token');navigate('/');}}>Logout</button>
             <hr/>
             {data.map((item) => (
                 <div key={item.id}>
