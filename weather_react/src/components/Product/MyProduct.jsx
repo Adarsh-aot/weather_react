@@ -6,7 +6,7 @@ function MyProduct() {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState('');
   const navigate = useNavigate();
-  const BASE_URL = "http://localhost:5000/product";
+  const BASE_URL = "https://backend-l627.onrender.com/product";
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -18,7 +18,7 @@ function MyProduct() {
       }
 
       try {
-        const response = await  axios.get('http://localhost:5000/product/myproduct', {
+        const response = await  axios.get('https://backend-l627.onrender.com/product/myproduct', {
           headers: {
             'Authorization': `${token}`
           }
