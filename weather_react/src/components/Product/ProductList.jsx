@@ -28,7 +28,7 @@ function ProductList() {
             return;
         }
 
-        axios.post(`${BASE_URL}`, { name, data }, {
+        axios.post(`${BUY_URL}`, { name, data }, {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `${token}`
