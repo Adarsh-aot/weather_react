@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate , useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function ProductList() {
@@ -8,7 +8,7 @@ function ProductList() {
 
     useEffect(() => {
         if(!localStorage.getItem('token')) {
-            window.location.href = '/';
+            navigate('/');
         }
         else{
         axios.get(BASE_URL)
@@ -16,7 +16,7 @@ function ProductList() {
             .catch(error => console.error('Error fetching data:', error));
     }
     }, []);
-
+    const navigate = useNavigate();
     return (
         <div>
             <h1>Products</h1><Link to="/add">Add Product</Link><Link to="/myproduct">My Product</Link><button onClick={() => {localStorage.removeItem('token');window.location.reload();}}>Logout</button>
