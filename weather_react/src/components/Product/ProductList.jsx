@@ -7,6 +7,8 @@ function ProductList() {
     const navigate = useNavigate();
     const [data, setData] = useState([]);
     const BASE_URL = "https://backend-l627.onrender.com/product";
+    const BUY_URL = "https://backend-l627.onrender.com/order";
+
 
     useEffect(() => {
         if (!localStorage.getItem('token')) {
@@ -26,7 +28,7 @@ function ProductList() {
             return;
         }
 
-        axios.post(`${BASE_URL}/buy`, { name, data }, {
+        axios.post(`${BASE_URL}`, { name, data }, {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `${token}`
