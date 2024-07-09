@@ -4,7 +4,7 @@ import axios from 'axios';
 
 function ProductList() {
     const [data, setData] = useState([]);
-    const BASE_URL = "http://localhost:5000/product";
+    const BASE_URL = "https://backend-l627.onrender.com/product";
 
     useEffect(() => {
         if(!localStorage.getItem('token')) {

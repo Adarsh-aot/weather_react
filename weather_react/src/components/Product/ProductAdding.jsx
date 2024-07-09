@@ -21,7 +21,7 @@ function ProductAdding() {
     const addProduct = () => {
         console.log(product);
         const token = localStorage.getItem('token');
-        axios.post('http://localhost:5000/product', product , {
+        axios.post('https://backend-l627.onrender.com/product', product , {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `${token}`

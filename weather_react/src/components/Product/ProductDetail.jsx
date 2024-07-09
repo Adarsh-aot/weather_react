@@ -5,7 +5,7 @@ import axios from 'axios';
 function ProductDetail() {
     const { id } = useParams();
     const [product, setProduct] = useState(null);
-    const BASE_URL = "http://localhost:5000/product";
+    const BASE_URL = "https://backend-l627.onrender.com/product";
     const navigate = useNavigate();
 
     useEffect(() => {
